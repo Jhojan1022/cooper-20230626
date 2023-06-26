@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./head'); %>
+    <%- include('./modal'); %>
+
+        <body>
+            <!--Moda-->
+            <section id="menu_princ" style="margin-bottom: 70px;">
+                <h1>Cooper - Administrador</h1>
+                <hr>
+                <div class="menu_adm" style="margin-top: 3vh;">
+                    <a href="#usuarios">
+                        <div>Usuarios</div>
+                    </a>
+                    <a href="">
+                        <div>Actividades</div>
+                    </a>
+                    <a href="">
+                        <div>Coordinaciones</div>
+                    </a>
+                    <a href="">
+                        <div>Informes</div>
+                    </a>
+                    <a href="">
+                        <div>Ausencias</div>
+                    </a>
+                </div>
+                <div class="menu_cant" style="margin-top: 3vh; text-align: center;">
+                    <div>Usuarios <br> <b>
+                            <%= usuariosM.usuarios.length%>
+                        </b></div>
+                    <div>Horarios <br> <b>
+                            <%= horarios.horarios.length%>
+                        </b></div>
+                    <div>Coordinaciones <br> <b>
+                            <%= coordinaciones.coordinaciones.length%>
+                        </b></div>
+                    <div>Roles <br> <b>
+                            <%= roles.roles.length%>
+                        </b></div>
+                    <div>Ausencias <br> <b>-</b></div>
+                </div>
+            </section>
+            <section id="usuarios" class="sectadm">
+                <h2>Usuarios</h2>
+                <hr><br>
+                <button id="crear_usuario">Crear usuarios</button>
+                <br><br>
+                <div style="display: auto; margin: auto">
+                    <table>
+                        <tr>
+                            <th>ID usuario</th>
+                            <th>Nombres y apellidos</th>
+                            <th>Rol</th>
+                            <th>Cargo</th>
+                            <th>Coordinación</th>
+                            <th>Horario</th>
+                            <th>Acción</th>
+                        </tr>
+                        <% usuariosM.usuarios.forEach(function(usu) { %>
+                            <tr>
+                                <td>
+                                    <%= usu.id_usuario %>
+                                </td>
+                                <td>
+                                    <%= usu.primer_nombre %>
+                                        <%= usu.segundo_nombre %>
+                                            <%= usu.primer_apellido %>
+                                                <%= usu.segundo_apellido %>
+                                </td>
+                                <td>
+                                    <%= usu.rol %>
+                                </td>
+                                <td>
+                                    <%= usu.cargo %>
+                                </td>
+                                <td>
+                                    <%= usu.coordinacion %>
+                                </td>
+                                <td>
+                                    <%= usu.horario %>
+                                </td>
+
+                                <td>
+                                    <button onclick="actualizarUsuario({
+                                        usuario: '<%= usu.id_usuario %>',
+                                        p_nombre: '<%= usu.primer_nombre %>',
+                                        s_nombre: '<%= usu.segundo_nombre %>',
+                                        p_apellido: '<%= usu.primer_apellido %>',
+                                        s_apellido: '<%= usu.segundo_apellido %>',
+                                        rol: '<%= usu.rol %>',
+                                        cargo: '<%= usu.cargo %>',
+                                        coordinacion: '<%= usu.coordinacion %>',
+                                        horario: '<%= usu.horario %>'
+                                    })">Actualizar</button>
+                                    /
+                                    <button onclick="justificarAusencia({
+                                        usuario: '<%= usu.id_usuario %>',
+                                        area: '<%= usu.coordinacion %>',
+                                        cargo: '<%= usu.cargo %>',
+                                    })">Justificar ausencia</button>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </table>
+                </div>
+            </section>
+
+            <section class="sectadm">
+                <h2>Actividades</h2>
+                <hr><br>
+
+                <table>
+                    <tr>
+                        <th class="table-resalt">ID actividad</th>
+                        <th class="table-resalt">Usuario</th>
+                        <th class="table-resalt">Nombre de la actividad</th>
+                        <th class="table-resalt">Fecha inicio</th>
+                        <th class="table-resalt">Fecha fin</th>
+                        <th class="table-resalt">Duración</th>
+                        <th class="table-resalt">Unidad de medida</th>
+                        <th class="table-resalt">Cantidad</th>
+                        <th class="table-resalt">Observación 1</th>
+                        <th class="table-resalt">Observación 2</th>
+                        <th class="table-resalt">Acción</th>
+                    </tr>
+                    <% actividadesM.forEach(function(actividad) { %>
+                        <tr>
+                            <td>
+                                <%= actividad.actividad %>
+                            </td>
+                            <td>
+                                <%= actividad.usuario %>
+                            </td>
+                            <td>
+                                <%= actividad.nombre_actividad %>
+                            </td>
+                            <td>
+                                <%= actividad.fecha_inicio %>
+                            </td>
+                            <td>
+                                <%= actividad.fecha_fin %>
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <%= actividad.unidad_medida %>
+                            </td>
+                            <td>
+                                <%= actividad.cantidad %>
+                            </td>
+
+                            <td>
+                                <%= actividad.observacion1 %>
+                            </td>
+                            <td>
+                                <%= actividad.observacion2 %>
+                            </td>
+                            <td>
+                                <button onclick="actualizarActividades({
+                                    id_actividad: '<%= actividad.actividad %>',
+                                    usuario: '<%= actividad.usuario %>',
+                                    nombre_actividad: '<%= actividad.nombre_actividad %>',
+                                    fecha_inicio: '<%= actividad.fecha_inicio %>',
+                                    fecha_fin: ' <%= actividad.fecha_fin %>',
+                                    duracion: '<%= actividad.unidad_medida %>',
+                                    unidad_medida: '<%= actividad.unidad_medida %>',
+                                    cantidad: '<%= actividad.cantidad %>',
+                                    observacion1: '<%= actividad.observacion1 %>',
+                                    observacion2: '<%= actividad.observacion2 %>'
+                                })">Actualizar</button>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </table>
+            </section>
+            <br><br>
+            <section class="sectadm">
+                <h2>Coordinaciones</h2>
+                <hr>
+                <br><br>
+                <button onclick="actualizarCoordinacion()">Crear coordinación</button>
+                <div>
+                    <div style="display: grid; grid-template-columns: 14% 14% 14% 14% 14% 14% 14%">
+                        <% coordinaciones.coordinaciones.forEach(function(coordinacion) { %>
+                            <div class="popest" style="margin:15px">
+                                <%= coordinacion.nombre_coordinacion %>
+                            </div>
+                            <% }); %>
+                    </div>
+                    <hr>
+                    <br><br><br><br>
+                    <button onclick="crearActividad()">Crear actividades</button>
+                    <br><br>
+                    <div>
+                        <table>
+                            <tr>
+                                <th class="table-resalt">ID</th>
+                                <th class="table-resalt">Nombre actividad</th>
+                                <th class="table-resalt">Descripción de actividad</th>
+                                <th class="table-resalt">Unidad de medida</th>
+                                <th class="table-resalt">Coordinaciones</th>
+                                <th class="table-resalt">Acción</th>
+                            </tr>
+                            <% actividadesO.actividades.forEach(function(actividad) { %>
+                                <tr>
+                                    <td>
+                                        <%= actividad.id_actividad %>
+                                    </td>
+                                    <td>
+                                        <%= actividad.nombre_actividad %>
+                                    </td>
+                                    <td>
+                                        <%= actividad.descripcion_actividad %>
+                                    </td>
+                                    <td>
+                                        <%= actividad.unidad_medida %>
+                                    </td>
+                                    <td id="actCoor<%= actividad.id_actividad %>"></td>
+                                    <td>
+                                        <button onclick="confActCoor()">Configurar actividades de coordinación</button>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <div hidden>
+                <div id="roles">
+                    <%= JSON.stringify(roles) %>
+                </div>
+                <div id="cargos">
+                    <%= JSON.stringify(cargos) %>
+                </div>
+                <div id="coordinaciones">
+                    <%= JSON.stringify(coordinaciones) %>
+                </div>
+                <div id="horarios">
+                    <%= JSON.stringify(horarios) %>
+                </div>
+                <div id="usuariosM">
+                    <%= JSON.stringify(usuariosM) %>
+                </div>
+                <div id="actividadesM">
+                    <%= JSON.stringify(actividadesM) %>
+                </div>
+                <div id="actCoor">
+                    <%= JSON.stringify(actsCoor) %>
+                </div>
+            </div>
+            <script src="js/modal.js"></script>
+            <script src="js/admin.js"></script>
+        </body>
+
+</html>

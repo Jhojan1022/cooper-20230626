@@ -1,0 +1,40 @@
+{
+    "actividades": [
+        {
+            "id_actividad": 0,
+            "nombre_actividad": "Ausencia justificada",
+            "descripcion_actividad": "Ausencia justificada",
+            "unidad_medida": "Afiliado"
+        },
+        {
+            "id_actividad": 1,
+            "nombre_actividad": "Ir de compras al supermercado",
+            "descripcion_actividad": "Comprar alimentos y otros artículos necesarios",
+            "unidad_medida": "PQR"
+        },
+        {
+            "id_actividad": 2,
+            "nombre_actividad": "Hacer ejercicio durante 30 minutos",
+            "descripcion_actividad": "Realizar actividades físicas para mantenerse en forma",
+            "unidad_medida": "Informe"
+        },
+        {
+            "id_actividad": 3,
+            "nombre_actividad": "Leer un libro de ficción",
+            "descripcion_actividad": "Sumergirse en una historia imaginaria",
+            "unidad_medida": "Afiliado"
+        },
+        {
+            "id_actividad": 4,
+            "nombre_actividad": "Preparar una comida saludable",
+            "descripcion_actividad": "Cocinar una comida equilibrada y nutritiva",
+            "unidad_medida": "Informe"
+        },
+        {
+            "id_actividad": 5,
+            "nombre_actividad": "Practicar meditación durante 15 minutos",
+            "descripcion_actividad": "Enfocarse en la respiración y encontrar la calma interior",
+            "unidad_medida": "Informe"
+        }
+    ]
+}
